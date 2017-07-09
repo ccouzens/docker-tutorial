@@ -134,3 +134,27 @@ docker run --rm -p 8080:80 ccouzens/apache:v2
 
 # optionally push and share
 ```
+
+## Go Compiler
+
+Take a look at `go/web.go`.
+Most of you won't have go installed on your laptops.
+So how do we compile it?
+
+**Answer**: [use docker](https://hub.docker.com/_/golang/)!
+
+```bash
+# Linux host
+docker run --rm -v "$PWD":/usr/src/web -w /usr/src/web golang:1.8 go build -v
+./web
+
+# Mac host
+docker run --rm -v "$PWD":/usr/src/web -w /usr/src/web -e GOOS=darwin golang:1.8 go build -v
+./web
+
+# Windows host
+docker run --rm -v "$PWD":/usr/src/web -w /usr/src/web -e GOOS=windows golang:1.8 go build -v
+./web.exe
+```
+
+Docker containers can be short lived tools, not just servers.
