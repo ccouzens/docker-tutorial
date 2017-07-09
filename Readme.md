@@ -73,7 +73,7 @@ docker login
 
 docker start -ia my_ubuntu
 apt-get install vim nano
-apt-get install apache2 apache2-utils
+apt-get install apache2
 echo > /var/www/html/index.html
 nano /var/www/html/index.html
 exit
