@@ -124,7 +124,7 @@ COPY *.html /usr/local/apache2/htdocs/
 ```
 
 Save the html file as index.html.
-Save the dockerfile as dockerfile.
+Save the dockerfile as Dockerfile.
 
 ```bash
 docker build -t ccouzens/apache:v2 .
