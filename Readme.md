@@ -145,16 +145,29 @@ So how do we compile it?
 
 ```bash
 # Linux host
-docker run --rm -v "$PWD":/usr/src/web -w /usr/src/web golang:1.8 go build -v
-./web
+docker run --rm -v "$PWD":/go/src/web -w /go/src/web golang:1.8 go build -v
+./web # open http://localhost:8080/
 
 # Mac host
-docker run --rm -v "$PWD":/usr/src/web -w /usr/src/web -e GOOS=darwin golang:1.8 go build -v
-./web
+docker run --rm -v "$PWD":/go/src/web -w /go/src/web -e GOOS=darwin golang:1.8 go build -v
+./web # open http://localhost:8080/
 
 # Windows host
-docker run --rm -v "$PWD":/usr/src/web -w /usr/src/web -e GOOS=windows golang:1.8 go build -v
-./web.exe
+docker run --rm -v "$PWD":/go/src/web -w /go/src/web -e GOOS=windows golang:1.8 go build -v
+./web.exe # open http://localhost:8080/
 ```
 
 Docker containers can be short lived tools, not just servers.
+
+## Redis
+
+Redis is a no-SQL database.
+
+```bash
+docker run -d --name my_redis -p 6379:6379 redis # start the database
+docker run -it --rm --link my_redis redis redis-cli -h my_redis # connect to the database
+SET who "Chris"
+exit
+
+REDIS_HOST_PORT=localhost:6379 ./web # open http://localhost:8080/
+```

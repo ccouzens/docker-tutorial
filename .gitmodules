@@ -1,0 +1,3 @@
+[submodule "go/vendor/github.com/go-redis/redis"]
+	path = go/vendor/github.com/go-redis/redis
+	url = https://github.com/go-redis/redis.git
