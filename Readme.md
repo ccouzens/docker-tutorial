@@ -159,9 +159,21 @@ docker run --rm -v "$PWD":/go/src/web -w /go/src/web -e GOOS=windows golang:1.8 
 
 Docker containers can be short lived tools, not just servers.
 
+### Build image
+
+This will only work if you have a docker version 17.06.0 or newer.
+
+```bash
+docker --version
+
+docker build -t ccouzens/web_go_with_redis .
+docker push ccouzens/web_go_with_redis
+```
+
 ## Redis
 
 Redis is a no-SQL database.
+We can connect our app to Redis running in a container.
 
 ```bash
 docker run -d --name my_redis -p 6379:6379 redis # start the database
@@ -169,5 +181,9 @@ docker run -it --rm --link my_redis redis redis-cli -h my_redis # connect to the
 SET who "Chris"
 exit
 
+## native
 REDIS_HOST_PORT=localhost:6379 ./web # open http://localhost:8080/
+
+## container
+docker run --rm -e REDIS_HOST_PORT=my_redis:6379 -p 8080:8080 --link my_redis ccouzens/web_go_with_redis
 ```
