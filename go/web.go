@@ -34,6 +34,7 @@ func main() {
 		DB:       0,
 	})
 	http.HandleFunc("/", handler)
+	fmt.Println("Listening at :8080")
 	http.ListenAndServe(":8080", nil)
 }
 
