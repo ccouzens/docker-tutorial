@@ -203,13 +203,13 @@ We have learnt about docker images and containers
 We have seen several ways of building docker images:
 
 1. By committing a container
-1. With docker build
-1. With docker build multi stage build
+1. With `docker build`
+1. With `docker build` multi stage build
 
 We have seen a couple ways of creating a running docker containers:
 
-1. docker create followed by docker start
-1. docker run
+1. `docker create` followed by `docker start`
+1. `docker run`
 
 We have seen that docker containers can be servers or tools.
 
