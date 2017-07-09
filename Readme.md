@@ -187,3 +187,24 @@ REDIS_HOST_PORT=localhost:6379 ./web # open http://localhost:8080/
 ## container
 docker run --rm -e REDIS_HOST_PORT=my_redis:6379 -p 8080:8080 --link my_redis ccouzens/web_go_with_redis
 ```
+
+## Conclusion
+
+We have learnt about docker images and containers
+
+We have seen several ways of building docker images:
+
+1. By committing a container
+1. With docker build
+1. With docker build multi stage build
+
+We have seen a couple ways of creating a running docker containers:
+
+1. docker create followed by docker start
+1. docker run
+
+We have seen that docker containers can be servers or tools.
+
+We have seen that some docker images are useful immediately (redis) whereas others need building upon (apache).
+
+We have seen that docker is a quick (and relatively safe) way to distribute and run software.
