@@ -59,8 +59,12 @@ exit
 ## Apache container 1
 
 ```html
+<!DOCTYPE html>
 <html>
-<head><title>My cool website</title></head>
+<head>
+<meta charset="UTF-8">
+<title>My cool website</title>
+</head>
 <body>
 <h1>My cool website</h1>
 By Chris
@@ -109,8 +113,12 @@ Our Apache docker image has a couple shortcomings:
 1. We're including Ubuntu
 
 ```html
+<!DOCTYPE html>
 <html>
-<head><title>My even cooler website</title></head>
+<head>
+<meta charset="UTF-8">
+<title>My even cooler website</title>
+</head>
 <body>
 <h1>My even cooler website</h1>
 By Chris
