@@ -5,5 +5,6 @@ COPY vendor ./vendor
 RUN go build -v -tags netgo .
 
 FROM scratch
+USER 1001
 COPY --from=builder /go/src/web/web /
 CMD ["/web"]
