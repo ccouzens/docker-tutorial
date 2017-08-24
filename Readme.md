@@ -30,7 +30,7 @@ Basically a docker container is an instance of a docker image.
 [Official definition](https://docs.docker.com/glossary/?term=container):
 
 > A container is a runtime instance of a docker image.
-> 
+>
 > A Docker container consists of
 >
 > * A Docker image
@@ -174,8 +174,10 @@ This will only work if you have a docker version 17.06.0 or newer.
 ```bash
 docker --version
 
-docker build -t ccouzens/web_go_with_redis .
-docker push ccouzens/web_go_with_redis
+git submodule update
+
+docker build -t ccouzens/web-go-with-redis .
+docker push ccouzens/web-go-with-redis
 ```
 
 ## Redis
