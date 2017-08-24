@@ -186,8 +186,9 @@ Redis is a no-SQL database.
 We can connect our app to Redis running in a container.
 
 ```bash
-docker run -d --name my_redis -p 6379:6379 redis # start the database
-docker run -it --rm --link my_redis redis redis-cli -h my_redis # connect to the database
+docker network create --driver bridge go_app_nw
+docker run -d --name my_redis --network=go_app_nw -p 6379:6379 redis # start the database
+docker run -it --rm --network=go_app_nw redis redis-cli -h my_redis # connect to the database
 SET who "Chris"
 exit
 
@@ -195,7 +196,7 @@ exit
 REDIS_HOST_PORT=localhost:6379 ./web # open http://localhost:8080/
 
 ## container
-docker run --rm -e REDIS_HOST_PORT=my_redis:6379 -p 8080:8080 --link my_redis ccouzens/web_go_with_redis
+docker run --rm -e REDIS_HOST_PORT=my_redis:6379 -p 8080:8080 --network=go_app_nw ccouzens/web-go-with-redis
 ```
 
 ## Conclusion
