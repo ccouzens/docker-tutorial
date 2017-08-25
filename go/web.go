@@ -30,7 +30,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	client = redis.NewClient(&redis.Options{
 		Addr:     os.Getenv("REDIS_HOST_PORT"),
-		Password: "",
+		Password: os.Getenv("REDIS_PASSWORD"),
 		DB:       0,
 	})
 	http.HandleFunc("/", handler)
