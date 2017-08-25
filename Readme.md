@@ -44,7 +44,7 @@ docker run --rm -e REDIS_HOST_PORT=my_redis:6379 -p 8080:8080 --network=go_app_n
 To get these same containers up and running in OpenShift follow the instructions below:
 First login to your OpenShift cluster:
 ```bash
-oc login <server url> -u <username>
+oc login https://ocp.beta-7.cor00005.cna.ukcloud.com:8443 -u <username>
 ```
 Now create the project you'll be using to deploy these containers in, here we've used the name demo
 ```bash
