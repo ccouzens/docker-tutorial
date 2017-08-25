@@ -62,9 +62,11 @@ oc new-app ccouzens/web-go-with-redis
 Now to prove its working we expose externally the internal service that the deployment created. This creates a route, which is an external access point to a service within a project. Once this is done we can verify the application is working now by connecting to the url listed under HOST/PORT in the get routes output.
 ```bash
 oc expose svc/web-go-with-redis
+
 oc get routes
 NAME                HOST/PORT                                                PATH      SERVICES            PORT       TERMINATION   WILDCARD
 web-go-with-redis   web-go-with-redis-demo.beta-7.cor00005.cna.ukcloud.com             web-go-with-redis   8080-tcp                 None
+
 curl web-go-with-redis-demo.beta-7.cor00005.cna.ukcloud.com
 
 <!DOCTYPE html>
@@ -86,6 +88,7 @@ oc get pods
 NAME                        READY     STATUS    RESTARTS   AGE
 redis-1-53f39               1/1       Running   0          2h
 web-go-with-redis-1-l9zc4   1/1       Running   0          2h
+
 oc rsh redis-1-53f39
 sh-4.2$ redis-cli -a password123
 127.0.0.1:6379> SET who Universe
@@ -96,6 +99,7 @@ Now we'll pass in the environment variables to the web app container and wait fo
 
 ```bash
 oc env dc/web-go-with-redis -e REDIS_HOST_PORT=redis.demo.svc:6379 -e REDIS_PASSWORD=password123
+
 oc get pods
 NAME                        READY     STATUS    RESTARTS   AGE
 redis-1-53f39               1/1       Running   0          2h
